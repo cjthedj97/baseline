@@ -22,6 +22,8 @@ touch /etc/yum.repos.d/cisofy-lynis.repo
 cp .cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
 yum makecache fast
 yum install lynis -y
+
+touch ./loot/lynis.$host.$(date +%F_%R)
 lynis audit system > ./loot/lynis.$host.$(date +%F_%R)
 
 
