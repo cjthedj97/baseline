@@ -9,3 +9,6 @@ if [ $(id -u) != 0 ]; then
     echo "You're not root. please run as root"
     exit
 fi
+
+## Lists the repos and asks to confirm if they are correct
+yum -v repolist
