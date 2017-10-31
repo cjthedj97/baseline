@@ -16,8 +16,13 @@ yum -v repolist
 
 
 
-yum install ca-certificates curl nano nss openssl lynx
+yum install ca-certificates curl git nano nss openssl lynx -y
 
 touch /etc/yum.repos.d/cisofy-lynis.repo
+cp .cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
+yum makecache fast
+yum install lynis -y
+lynis audit system > ./loot/lynis.$host.$(date +%F_%R)
 
-echo  
+
+ 
