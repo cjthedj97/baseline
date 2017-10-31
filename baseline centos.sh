@@ -12,3 +12,12 @@ fi
 
 ## Lists the repos and asks to confirm if they are correct
 yum -v repolist
+
+
+
+
+yum install ca-certificates curl nano nss openssl lynx
+
+touch /etc/yum.repos.d/cisofy-lynis.repo
+
+echo  
