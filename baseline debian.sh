@@ -13,7 +13,7 @@ fi
 ## Checks the /etc/apt/sources.list and ask if it is correct
 echo "Please verify that the source list is correct"
 cat /etc/apt/sources.list
-echo "is this correct"
+echo "Is this correct?"
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
         echo "you entered Y"
