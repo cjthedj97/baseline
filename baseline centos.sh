@@ -10,21 +10,25 @@ if [ $(id -u) != 0 ]; then
     exit
 fi
 
-## Lists the repos and asks to confirm if they are correct
-yum -v repolist
+read a
+if [[ $a == "Y" || $a == "Y" ]]; then
+        echo "you entered Y"
+        ## Lists the repos and asks to confirm if they are correct
+        yum -v repolist
+
+
+        yum install ca-certificates curl git nano nss openssl lynx -y
+
+        touch /etc/yum.repos.d/cisofy-lynis.repo
+        cp .cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
+        yum makecache fast
+        yum install lynis -y
+
+        touch lynis.$host.$(date +%F_%R)
+        lynis audit system > lynis.$host.$(date +%F_%R)
 
 
 
-
-yum install ca-certificates curl git nano nss openssl lynx -y
-
-touch /etc/yum.repos.d/cisofy-lynis.repo
-cp .cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
-yum makecache fast
-yum install lynis -y
-
-touch lynis.$host.$(date +%F_%R)
-lynis audit system > lynis.$host.$(date +%F_%R)
-
-
- 
+else
+        echo "You entered N or an incorrct response"
+fi
