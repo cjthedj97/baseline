@@ -17,6 +17,8 @@ echo "is this correct"
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
         echo "you entered Y"
+	
+	apt install curl git nano lynx
 else
         echo "You entered N or an incorrct response"
 fi
