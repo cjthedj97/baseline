@@ -10,11 +10,19 @@ if [ $(id -u) != 0 ]; then
     exit
 fi
 
+## Saves/Copys files for incidence Response
+mkdir ~/baseline
+mkdir ~/baseline/log
+cp -Ra --preserve /var/log ~/baseline/log
+
+## Lists the repos and asks to confirm if they are correct
+yum -v repolist | more
+echo "Is this correct?"
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
-        echo "you entered Y Starting the Script"
-        ## Lists the repos and asks to confirm if they are correct
-        yum -v repolist
+        # If Correct then Runs the following
+        echo "You entered Y Starting the Script"
+
 
 
         yum install ca-certificates curl git nano nss openssl lynx -y
