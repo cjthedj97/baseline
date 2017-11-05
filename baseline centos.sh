@@ -12,7 +12,7 @@ fi
 
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
-        echo "you entered Y"
+        echo "you entered Y Starting the Script"
         ## Lists the repos and asks to confirm if they are correct
         yum -v repolist
 
@@ -30,5 +30,6 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
 
 else
-        echo "You entered N or an incorrct response"
+        echo "You Need to fix the Source List!"
+	echo "Then try again"
 fi
