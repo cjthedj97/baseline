@@ -21,13 +21,13 @@ cat /etc/apt/sources.list | less
 echo "Is this correct?"
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
-  # If Correct then Runs the following
-  echo "You entered Y Starting the Script"
+  # If Correct then Runs the following 
+  echo "Starting the Script"
 
 
 	apt install curl git nano lynx
-  apt update
-  apt upgrade
+	apt update
+	apt upgrade
 
 else
         echo "You entered N or an incorrct response"
