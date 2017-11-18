@@ -38,7 +38,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 	echo "Starting the Script"
 
 	# Installing The Required Software
-  yum install ca-certificates curl git nano nss openssl lynx -y
+  yum install ca-certificates curl git nano nss openssl lynx  python -y
 
 	# Setting up and Installing Lynis
   touch /etc/yum.repos.d/cisofy-lynis.repo

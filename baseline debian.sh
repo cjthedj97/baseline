@@ -40,7 +40,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   apt upgrade -Y
 
   # Installing the Required Software
-	apt install curl git nano lynx
+	apt install curl git nano lynx python
 
 
 
