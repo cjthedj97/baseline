@@ -35,7 +35,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
   # Setting up and Installing Lynis
   touch lynis.$HOSTNAME.$(date +%F_%R)
-  lynis audit system > ~/baseline/lynis/$HOSTNAME.$(date +%F_%R)
+  lynis audit system > ~/baseline/lynis.$HOSTNAME.$(date +%F_%R)
 
   # Updating the system
   echo "Upgradeing"
