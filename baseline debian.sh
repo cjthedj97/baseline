@@ -32,7 +32,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   sleep 5
   git clone https://github.com/SekoiaLab/Fastir_Collector_Linux
   cd Fastir_Collector_Linux
-  python fastIR_collector_linux.py
+  python fastIR_collector_linux.py &> ~/baseline/fastir.log
   cp -R output/ ~/baseline/output
 
   # Setting up and Installing Lynis
