@@ -49,7 +49,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
   # Updating the system
   echo "Upgradeing"
-  yum update -y
+  yum upgrade -y
 
   needs-restarting -r
   sleep 5
