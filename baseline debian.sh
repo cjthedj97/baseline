@@ -10,41 +10,41 @@ if [ $(id -u) != 0 ]; then
     exit
 fi
 
-# Creating the needed Directories
-mkdir ~/baseline
-
 ## Checks the /etc/apt/sources.list and ask if it is correct
 echo "Please verify that the source list is correct"
 cat /etc/apt/sources.list | less
 echo "Is this correct?"
+echo "Enter Y or N"
 read a
 if [[ $a == "Y" || $a == "Y" ]]; then
   # If Correct then Runs the following
   echo "Starting the Script"
+  sleep 5
   apt update -Y
 
   # Installing the Required Software
   echo "Installing the required Software"
+  sleep 5
 	apt install curl git nano lynx python tmux lynis -y
 
   # Downloads and Runs IR (Incidance Response) program
   echo "Installing IR program"
+  sleep 5
   git clone https://github.com/SekoiaLab/Fastir_Collector_Linux
   cd Fastir_Collector_Linux
   python fastIR_collector_linux.py
   cp -R output/ ~/baseline/output
 
   # Setting up and Installing Lynis
+  echo "Starting Lynis"
+  Sleep 5
   lynis audit system
   cp /var/log/lynis.log ~/baseline/output/lynis.log
   cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
 
-
   # Updating the system
   echo "Upgradeing"
   apt upgrade -Y
-
-  # Possably add premisson checking on files
 
 	# Check to see if system reboot is required
   if [ -f /var/run/reboot-required ]; then
@@ -54,4 +54,5 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   fi
 else
         echo "You entered N or an incorrct response"
+        echo "Please try again later"
 fi
