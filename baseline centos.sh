@@ -36,7 +36,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
 	# Setting up and Installing Lynis
   touch /etc/yum.repos.d/cisofy-lynis.repo
-  cp ~/baseline/.cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
+  cp ~/baseline/cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
   yum makecache fast
   yum install lynis -y
 
