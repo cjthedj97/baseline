@@ -20,7 +20,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   # If Correct then Runs the following
   echo "Starting the Script"
   sleep 5
-  apt update -Y
+  apt update -y &> ~/baseline/update.log
 
   # Installing the Required Software
   echo "Installing the required Software"
@@ -37,14 +37,14 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
   # Setting up and Installing Lynis
   echo "Starting Lynis"
-  Sleep 5
+  Sleep 5-
   lynis audit system
   cp /var/log/lynis.log ~/baseline/output/lynis.log
   cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
 
   # Updating the system
   echo "Upgradeing"
-  apt upgrade -Y
+  apt upgrade -y
 
 	# Check to see if system reboot is required
   if [ -f /var/run/reboot-required ]; then
