@@ -19,7 +19,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   # If Correct then Runs the following
 	echo "Starting the Script"
   sleep 5
-  yum update -y
+  yum update -y &> ~/baseline/update.log
 
 	# Installing The Required Software
   echo "Installing the required Software"
