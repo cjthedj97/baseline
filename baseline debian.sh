@@ -32,14 +32,19 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   git clone https://github.com/SekoiaLab/Fastir_Collector_Linux
   cd Fastir_Collector_Linux
   python fastIR_collector_linux.py
+  cp -R output/ ~/baseline/output
 
   # Setting up and Installing Lynis
-  touch lynis.$HOSTNAME.$(date +%F_%R)
-  lynis audit system > ~/baseline/lynis.$HOSTNAME.$(date +%F_%R)
+  lynis audit system
+  cp /var/log/lynis.log ~/baseline/output/lynis.log
+  cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
+
 
   # Updating the system
   echo "Upgradeing"
   apt upgrade -Y
+
+  # Possably add premisson checking on files
 
 	# Check to see if system reboot is required
   if [ -f /var/run/reboot-required ]; then
