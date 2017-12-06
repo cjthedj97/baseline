@@ -37,7 +37,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
 
   # Setting up and Installing Lynis
   echo "Starting Lynis"
-  Sleep 5-
+  Sleep 5
   lynis audit system
   cp /var/log/lynis.log ~/baseline/output/lynis.log
   cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
