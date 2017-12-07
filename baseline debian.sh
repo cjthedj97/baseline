@@ -22,27 +22,12 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   sleep 5
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C80E383C3DE9F082E01391A0366C67DE91CA5D5F
   apt install apt-transport-https
-  codename=$(lsb_release -c)
   touch /etc/apt/preferences.d/lynis
   echo "Package: lynis" >> /etc/apt/preferences.d/lynis
   echo "Pin: origin packages.cisofy.com" >> /etc/apt/preferences.d/lynis
   echo "Pin-Priority: 600" >> /etc/apt/preferences.d/lynis
 
-  # Add the correct repo based on the verson of debian running
-  if [[ $codename = "stretch" ]]
-  then
-    echo "deb https://packages.cisofy.com/community/lynis/deb/ stretch main" > /etc/apt/sources.list.d/cisofy-lynis.list
-  fi
-
-  if [[ $codename = "jessie" ]]
-  then
-    echo "deb https://packages.cisofy.com/community/lynis/deb/ jessie main" > /etc/apt/sources.list.d/cisofy-lynis.list
-  fi
-
-  if [[ $codename = "wheezy" ]]
-  then
-    echo "deb https://packages.cisofy.com/community/lynis/deb/ wheezy main" > /etc/apt/sources.list.d/cisofy-lynis.list
-  fi
+  echo "deb https://packages.cisofy.com/community/lynis/deb/ stable main" > /etc/apt/sources.list.d/cisofy-lynis.list
 
   apt update -y &> ~/baseline/update.log
 
