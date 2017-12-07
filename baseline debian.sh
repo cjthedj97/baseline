@@ -23,6 +23,10 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C80E383C3DE9F082E01391A0366C67DE91CA5D5F
   apt install apt-transport-https
   codename=$(lsb_release -c)
+  touch /etc/apt/preferences.d/lynis
+  echo "Package: lynis" >> /etc/apt/preferences.d/lynis
+  echo "Pin: origin packages.cisofy.com" >> /etc/apt/preferences.d/lynis
+  echo "Pin-Priority: 600" >> /etc/apt/preferences.d/lynis
 
   # Add the correct repo based on the verson of debian running
   if [[ $codename = "stretch" ]]
