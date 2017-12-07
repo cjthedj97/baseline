@@ -23,15 +23,18 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   codename=$(lsb_release -c)
 
   # Add the correct repo based on the verson of debian running
-  if [ $codename = "stretch" ]; then
+  if [[ $codename = "stretch" ]
+  then
     echo "deb https://packages.cisofy.com/community/lynis/deb/ stretch main" > /etc/apt/sources.list.d/cisofy-lynis.list
   fi
 
-  if [ $codename = "jessie" ]; then
+  if [[ $codename = "jessie" ]] 
+  then
     echo "deb https://packages.cisofy.com/community/lynis/deb/ jessie main" > /etc/apt/sources.list.d/cisofy-lynis.list
   fi
 
-  if [ $codename = "wheezy" ]; then
+  if [[ $codename = "wheezy" ]]
+  then
     echo "deb https://packages.cisofy.com/community/lynis/deb/ wheezy main" > /etc/apt/sources.list.d/cisofy-lynis.list
   fi
 
