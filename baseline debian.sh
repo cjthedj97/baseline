@@ -21,20 +21,26 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   echo "Starting the Script"
   sleep 5
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C80E383C3DE9F082E01391A0366C67DE91CA5D5F
-  apt install apt-transport-https
+
+  # Installing the required Software
+  echo "Inatalling the required software"
+  sleep 5
+  apt install apt-transport-https curl git nano lynx python tmux -y
+
+  # Creating and addning the needed parmaters to get the latest verson of Lynis
   touch /etc/apt/preferences.d/lynis
   echo "Package: lynis" >> /etc/apt/preferences.d/lynis
   echo "Pin: origin packages.cisofy.com" >> /etc/apt/preferences.d/lynis
   echo "Pin-Priority: 600" >> /etc/apt/preferences.d/lynis
-
   echo "deb https://packages.cisofy.com/community/lynis/deb/ stable main" > /etc/apt/sources.list.d/cisofy-lynis.list
 
+  # Updating Sources
   apt update -y &> ~/baseline/update.log
 
-  # Installing the Required Software
-  echo "Installing the required Software"
+  # Installing lynis
+  echo "Installing lynis"
   sleep 5
-	apt install curl git nano lynx python tmux lynis -y
+  apt install lynis -y
 
   # Downloads and Runs IR (Incidance Response) program
   echo "Installing IR program"
@@ -52,7 +58,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
 
   # Updating the system
-  echo "Upgradeing"
+  echo "Updating the system"
   apt upgrade -y
 
 	# Check to see if system reboot is required
