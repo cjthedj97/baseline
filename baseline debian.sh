@@ -20,6 +20,8 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   # If Correct then Runs the following
   echo "Starting the Script"
   sleep 5
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C80E383C3DE9F082E01391A0366C67DE91CA5D5F
+  apt install apt-transport-https
   codename=$(lsb_release -c)
 
   # Add the correct repo based on the verson of debian running
