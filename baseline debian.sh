@@ -70,6 +70,20 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   echo "Upgradeing"
   apt upgrade -y
 
+  # Parse lynis-report.dat for easier viewing      #NetHunter
+ echo "Review parsed output for system compliance"
+  sleep 5
+  touch ~/baseline/output/parsed.log
+   echo "Warnings ******************************************************************************************************************************************" >> ~/baseline/output/parsed.log
+  cat ~/baseline/output/lynis-report.dat | grep warning | sed -e 's/warning\[\]=//g' >> ~/baseline/output/parsed.log
+   echo "Suggestion ****************************************************************************************************************************************" >> ~/baseline/output/parsed.log
+  cat ~/baseline/output/lynis-report.dat | grep suggestion | sed -e 's/suggestion\[\]=//g' >> ~/baseline/output/parsed.log
+   echo "Installed Packages ********************************************************************************************************************************" >> ~/baseline/output/parsed.log
+  cat ~/baseline/output/lynis-report.dat | grep installed_packages | sed -e 's/installed_packages\[\]=//g' >> ~/baseline/output/parsed.log
+   echo "Avalilable Shell **********************************************************************************************************************************" >> ~/baseline/output/parsed.log
+  cat ~/baseline/output/lynis-report.dat | grep available_shell | sed -e 's/available_shell\[\]=//g' >> ~/baseline/output/parsed.log
+  cat ~/baseline/output/parsed.log | less
+
 	# Check to see if system reboot is required
   if [ -f /var/run/reboot-required ]; then
   echo 'Reboot Required, please consiter rebooting'
