@@ -19,9 +19,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   # If Correct then Runs the following
 	echo "Starting the Script"
   sleep 5
-  yum update -y &> ~/baseline/update.log
-
-	# Installing The Required Software
+# Installing The Required Software
   echo "Installing the required Software"
   sleep 5
   yum install ca-certificates curl git nano nss openssl lynx python tmux yum-utils -y
@@ -34,7 +32,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   python fastIR_collector_linux.py &> ~/baseline/fastir.log
   cp -R output/ ~/baseline/output
 
-	# Setting up and Installing Lynis
+# Setting up and Installing Lynis
   touch /etc/yum.repos.d/cisofy-lynis.repo
   cp ~/baseline/cisofy-lynis.repo /etc/yum.repos.d/cisofy-lynis.repo
   yum makecache fast
@@ -48,8 +46,8 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   cp /var/log/lynis-report.dat ~/baseline/output/lynis-report.dat
 
   # Updating the system
-  echo "Upgradeing"
-  yum upgrade -y
+ echo "Upgradeing"
+ yum update -y &> ~/baseline/update.log
 
   needs-restarting -r
   sleep 5
