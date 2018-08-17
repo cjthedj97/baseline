@@ -10,3 +10,10 @@
 *
 
 ## Where are the files stored
+
+
+
+
+
+## Credits To the Orignal Software
+https://github.com/SekoiaLab/Fastir_Collector_Linux
