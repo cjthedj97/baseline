@@ -9,7 +9,7 @@
 *
 
 ## Where are the files stored
-
+All data should be contained within the baseline dir
 
 
 
