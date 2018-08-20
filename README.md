@@ -3,9 +3,8 @@
 
 
 ## What's Installed
-* Lybis
+* Lynis
 * Fastir_Collector_Linux
-*
 *
 *
 
@@ -16,4 +15,5 @@
 
 
 ## Credits To the Orignal Software
+https://cisofy.com/lynis/
 https://github.com/SekoiaLab/Fastir_Collector_Linux
