@@ -23,6 +23,7 @@ if [[ $a == "Y" || $a == "Y" ]]; then
   echo "Installing the required Software"
   sleep 5
   yum install ca-certificates curl git nano nss openssl lynx python tmux yum-utils -y
+  mkdir ~/baseline/
 
   # Downloads and Runs IR (Incidance Response) program
   echo "Installing IR program"
